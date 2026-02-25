@@ -1,0 +1,24 @@
+#root {
+  width: 100%;
+  color: white;
+}
+nav {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+nav p {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+.youtube-icon {
+  color: red;
+  height: 2rem;
+  width: 2rem;
+}
