@@ -54,3 +54,19 @@ nav form input:focus {
   color: red;
   transition: 0.3s;
 }
+main {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+.btn-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 20%;
+}
+.link-icon {
+  color: red;
+  width: 2rem;
+  height: 2rem;
+}
