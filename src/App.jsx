@@ -5,6 +5,36 @@ import axios from "axios";
 import userContext from "./UserContext";
 
 function App() {
+  const [videos, setVideos] = useState([]);
+
+  const loadRelatedVideos = () => {
+    const options = {
+      method: "GET",
+      url: "https://youtube-v31.p.rapidapi.com/search",
+      params: {
+        q: "new",
+        part: "snippet,id",
+        type: "video",
+        order: "date",
+        maxResults: "20",
+        regionCode: "US",
+      },
+      headers: {
+        "x-rapidapi-key": "999d60b057msh2e1934703f4a97ep1c668bjsn0c50205142da",
+        "x-rapidapi-host": "youtube-v31.p.rapidapi.com",
+        "Content-Type": "application/json",
+      },
+    };
+    axios
+      .request(options)
+      .then((response) => setVideos(response.data.items))
+      .catch((error) => console.log(error));
+  };
+  /*useEffect(() => {
+    loadRelatedVideos();
+  }, []);*/
+  console.log(videos);
+
   return (
     <>
       <nav>
