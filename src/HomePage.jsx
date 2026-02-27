@@ -3,7 +3,12 @@ import userContext from "./UserContext";
 import { NavLink } from "react-router-dom";
 const Home = () => {
   const { videos, timeAgo } = useContext(userContext);
-
+  /*
+  -napravi reusable card component
+  -napravi da u zavisnodti od klika promenim klipove
+  -ubaci search
+  -search je uvek tu
+   */
   return (
     <>
       <h1>
