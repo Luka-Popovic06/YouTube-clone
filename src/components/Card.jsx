@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-const Card = ({ obj, setTime }) => {
+import { timeAgo } from "../utils/formatData";
+const Card = ({ obj }) => {
   return (
     <NavLink className="video-card">
       <img
@@ -10,7 +11,7 @@ const Card = ({ obj, setTime }) => {
       <div className="video-info-box">
         <h5 className="heading">{obj?.snippet?.title}</h5>
         <p className="chanel-name">{obj?.snippet?.channelTitle}</p>
-        <p className="date">{setTime(obj?.snippet?.publishTime)}</p>
+        <p className="date">{timeAgo(obj?.snippet?.publishTime)}</p>
       </div>
     </NavLink>
   );
