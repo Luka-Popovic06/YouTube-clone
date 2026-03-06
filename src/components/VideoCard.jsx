@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { timeAgo } from "../utils/formatData";
-const Card = ({ obj }) => {
+const VideoCard = ({ obj }) => {
   return (
     <NavLink className="video-card">
       <img
@@ -16,4 +16,4 @@ const Card = ({ obj }) => {
     </NavLink>
   );
 };
-export default Card;
+export default VideoCard;

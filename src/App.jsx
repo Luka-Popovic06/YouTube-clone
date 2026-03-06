@@ -3,16 +3,14 @@ import { Outlet, NavLink } from "react-router-dom";
 import "./styles/App.css";
 import userContext from "./context/UserContext.jsx";
 import { loadRelatedVideos, loadChannel } from "./api/youtubeApi.js";
-//import Loader from "./components/Loader.jsx";
 
 function App() {
   const [videos, setVideos] = useState([]);
   const [videoCategory, setVideoCategory] = useState("New");
   const [search, setSearch] = useState("");
   const [activeBtn, setActiveBtn] = useState("New");
-  const [loading, setLoading] = useState(true);
-  //trebam da stavim da channel izlazi samo kad se search-a
-  //i da iz editujem channel card
+  const [loading, setLoading] = useState(false);
+
   /*useEffect(() => {
     const fetchVideos = async () => {
       const dataVideos = await loadRelatedVideos(videoCategory);
@@ -21,10 +19,12 @@ function App() {
     };
     fetchVideos();
   }, [videoCategory]);*/
+
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
+
   console.log(videos);
 
   return (

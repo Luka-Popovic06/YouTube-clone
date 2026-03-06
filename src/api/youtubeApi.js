@@ -35,7 +35,6 @@ export const loadChannel = async (channelName) => {
       q: channelName,
       part: "snippet,id",
       type: "channel",
-      order: "date",
       maxResults: "1",
     },
     headers: {
