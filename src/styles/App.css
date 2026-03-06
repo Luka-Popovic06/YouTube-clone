@@ -189,3 +189,26 @@ main {
 .p-youtube-loader {
   color: #6c6c6c;
 }
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-decoration: none;
+  align-items: center;
+}
+.channel-img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.channel-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: #1a1a1a;
+  padding: 5px;
+  padding-bottom: 30px;
+  min-height: 110px;
+}
