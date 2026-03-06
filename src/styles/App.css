@@ -155,3 +155,37 @@ main {
 .date {
   color: white;
 }
+.empty-box {
+  background-color: rgb(47, 47, 47);
+  padding: 30px 70px;
+}
+.empty-video-box {
+  background-color: rgb(47, 47, 47);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-decoration: none;
+  height: 310px;
+}
+.youtube-icon-empty {
+  background-color: rgba(47, 47, 47, 0.549);
+  padding: 19px 25px;
+}
+.nav-empty-div {
+  background-color: rgba(47, 47, 47, 0.549);
+  width: 300px;
+  height: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.nav-empty-div button {
+  border: none;
+  background-color: transparent;
+  pointer-events: none;
+}
+.p-youtube-loader {
+  color: #6c6c6c;
+}
