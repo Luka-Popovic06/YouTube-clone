@@ -51,3 +51,27 @@ export const loadChannel = async (channelName) => {
     return [];
   }
 };
+export const loadChannelVideos = async (channelId) => {
+  const options = {
+    method: "GET",
+    url: "https://youtube-v31.p.rapidapi.com/search",
+    params: {
+      channelId: channelId,
+      part: "snippet,id",
+      order: "date",
+      maxResults: "5",
+    },
+    headers: {
+      "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
+      "x-rapidapi-host": "youtube-v31.p.rapidapi.com",
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    const response = await axios.request(options);
+    return response.data.items;
+  } catch (error) {
+    console.error("Greška pri učitavanju videa:", error);
+    return [];
+  }
+};
