@@ -212,3 +212,25 @@ main {
   padding-bottom: 30px;
   min-height: 110px;
 }
+.channel-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.video-channel-container {
+  width: 95%;
+}
+.channel-page-img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.channel-page-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}

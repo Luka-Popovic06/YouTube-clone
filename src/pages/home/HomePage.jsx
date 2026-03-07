@@ -6,7 +6,7 @@ import userContext from "../../context/UserContext";
 import Loader from "../../components/Loader";
 const HomePage = () => {
   const {
-    videos,
+    videoState,
     videoCategory,
     setVideoCategory,
     setActiveBtn,
@@ -14,8 +14,8 @@ const HomePage = () => {
     search,
     setSearch,
     loading,
+    setShowChannel,
   } = useContext(userContext);
-
   return (
     <>
       {loading ? (
@@ -26,15 +26,25 @@ const HomePage = () => {
             setVideoCategory={(value) => setVideoCategory(value)}
             setSearch={(value) => setSearch(value)}
             search={search}
+            setShowChannel={(value) => setShowChannel(value)}
+            setActiveBtn={(value) => setActiveBtn(value)}
           />
           <main>
             <Sidebar
               setVideoCategory={(value) => setVideoCategory(value)}
               setActiveBtn={(value) => setActiveBtn(value)}
               activeBtn={activeBtn}
+              setShowChannel={(value) => setShowChannel(value)}
+              s
             />
             <div className="video-container">
-              <CardList videos={videos} videoCategory={videoCategory} />
+              <CardList
+                videos={[
+                  ...videoState.channelInfo,
+                  ...videoState.featuredVideos,
+                ]}
+                videoCategory={videoCategory}
+              />
             </div>
           </main>
         </>

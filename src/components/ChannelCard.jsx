@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const ChannelCard = ({ obj }) => {
   return (
-    <NavLink className="channel-card">
+    <NavLink className="channel-card" to={"/channel"}>
       <img
         className="channel-img"
         src={obj?.snippet?.thumbnails?.high?.url}

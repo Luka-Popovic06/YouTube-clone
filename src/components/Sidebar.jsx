@@ -1,6 +1,11 @@
 import { categories } from "../utils/Categories";
 
-const Sidebar = ({ setVideoCategory, setActiveBtn, activeBtn }) => {
+const Sidebar = ({
+  setVideoCategory,
+  setActiveBtn,
+  activeBtn,
+  setShowChannel,
+}) => {
   return (
     <aside className="btn-box">
       {categories.map((category, index) => (
@@ -11,6 +16,7 @@ const Sidebar = ({ setVideoCategory, setActiveBtn, activeBtn }) => {
           onClick={() => {
             setVideoCategory(category.name);
             setActiveBtn(category.name);
+            setShowChannel(false);
           }}
           key={index}
         >

@@ -9,7 +9,7 @@ export const loadRelatedVideos = async (videoCategory) => {
       part: "snippet,id",
       type: "video",
       order: "date",
-      maxResults: "10",
+      maxResults: "5",
       regionCode: "US",
     },
     headers: {

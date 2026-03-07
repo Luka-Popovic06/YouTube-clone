@@ -9,7 +9,8 @@ const CardList = ({ videos, videoCategory }) => {
       <div className="link-container">
         {videos &&
           videos?.map((obj, index) =>
-            obj?.id?.kind === "youtube#channel" ? (
+            obj?.id?.kind === "youtube#channel" &&
+            obj?.snippet?.thumbnails?.high?.url ? (
               <ChannelCard obj={obj} key={index} />
             ) : (
               <VideoCard obj={obj} key={index} />
