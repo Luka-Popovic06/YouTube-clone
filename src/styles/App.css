@@ -234,3 +234,9 @@ main {
   align-items: center;
   gap: 20px;
 }
+.img-empty-box {
+  background-color: rgba(47, 47, 47, 0.549);
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+}
