@@ -1,5 +1,6 @@
 import { IoSearchSharp } from "react-icons/io5";
-const Loader = () => {
+
+const ChannelLoader = () => {
   return (
     <>
       <nav>
@@ -13,62 +14,12 @@ const Loader = () => {
           </button>
         </div>
       </nav>
-      <main>
-        <aside className="btn-box">
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-          <div className="empty-box">
-            <div></div>
-            <p></p>
-          </div>
-        </aside>
-        <div className="video-container">
+      <main className="channel-container">
+        <div className="channel-page-box">
+          <div className="img-empty-box"></div>
+          <div className="channel-empty-name"></div>
+        </div>
+        <div className="video-channel-container">
           <div className="link-container">
             <div className="empty-video-box">
               <div className="video-image"></div>
@@ -124,4 +75,4 @@ const Loader = () => {
     </>
   );
 };
-export default Loader;
+export default ChannelLoader;

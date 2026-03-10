@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import { useContext, useEffect } from "react";
 import userContext from "../../context/UserContext";
-import Loader from "../../components/Loader";
+import VideoLoader from "../../components/VideoLoader";
 const HomePage = () => {
   const {
     videoState,
@@ -13,13 +13,20 @@ const HomePage = () => {
     activeBtn,
     search,
     setSearch,
-    loading,
+    videoLoading,
     setShowChannel,
+    setVideoLoading,
   } = useContext(userContext);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVideoLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, [videoLoading]);
+
   return (
     <>
-      {loading ? (
-        <Loader />
+      {videoLoading ? (
+        <VideoLoader />
       ) : (
         <>
           <Navbar
@@ -28,6 +35,7 @@ const HomePage = () => {
             search={search}
             setShowChannel={(value) => setShowChannel(value)}
             setActiveBtn={(value) => setActiveBtn(value)}
+            setLoading={(value) => setVideoLoading(value)}
           />
           <main>
             <Sidebar

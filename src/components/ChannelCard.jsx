@@ -5,7 +5,7 @@ const ChannelCard = ({ obj }) => {
     <NavLink className="channel-card" to={"/channel"}>
       <img
         className="channel-img"
-        src={obj?.snippet?.thumbnails?.high?.url}
+        src={`${obj?.snippet?.thumbnails?.high?.url}`}
         alt="channel"
       />
       <div className="channel-info-box">

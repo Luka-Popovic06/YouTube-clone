@@ -17,10 +17,9 @@ function App() {
   const [videoCategory, setVideoCategory] = useState("New");
   const [search, setSearch] = useState("");
   const [activeBtn, setActiveBtn] = useState("New");
-  const [loading, setLoading] = useState(false);
+  const [videoLoading, setVideoLoading] = useState(true);
+  const [channelLoading, setChannelLoading] = useState(true);
   const [showChannel, setShowChannel] = useState(false);
-
-  //1.f-ja za dodavanje videa
 
   const fetchVideos = async () => {
     const videos = await loadRelatedVideos(videoCategory);
@@ -29,8 +28,6 @@ function App() {
       featuredVideos: videos,
     }));
   };
-
-  //2.f-ja za dodavanje channel-a
 
   const fetchChannelInfo = async () => {
     if (showChannel === false) {
@@ -48,15 +45,10 @@ function App() {
     }));
   };
 
-  /*useEffect(() => {
+  useEffect(() => {
     fetchVideos();
     fetchChannelInfo();
-  }, [videoCategory]);*/
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
+  }, [videoCategory]);
 
   console.log(videoState);
 
@@ -70,9 +62,12 @@ function App() {
         activeBtn,
         search,
         setSearch,
-        loading,
+        videoLoading,
         setVideoState,
         setShowChannel,
+        setVideoLoading,
+        channelLoading,
+        setChannelLoading,
       }}
     >
       <Outlet />

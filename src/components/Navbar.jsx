@@ -8,6 +8,7 @@ const Navbar = ({
   search,
   setShowChannel,
   setActiveBtn,
+  setLoading,
 }) => {
   const navigate = useNavigate();
 
@@ -25,6 +26,7 @@ const Navbar = ({
           navigate("/");
           setShowChannel(true);
           setActiveBtn("New");
+          setLoading(true);
         }}
       >
         <input
