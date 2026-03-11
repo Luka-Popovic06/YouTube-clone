@@ -3,6 +3,7 @@ import App from "./App";
 import ErrorPage from "./pages/error/Error";
 import HomePage from "./pages/home/HomePage";
 import ChannelPage from "./pages/channel/ChannelPage";
+import VideoPage from "./pages/video/VideoPage";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <VideoPage />,
       },
       {
         path: "/channel",

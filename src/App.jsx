@@ -19,6 +19,7 @@ function App() {
   const [activeBtn, setActiveBtn] = useState("New");
   const [videoLoading, setVideoLoading] = useState(true);
   const [channelLoading, setChannelLoading] = useState(true);
+  const [videoPageLoading, setVideoPageLoading] = useState(false);
   const [showChannel, setShowChannel] = useState(false);
 
   const fetchVideos = async () => {
@@ -45,10 +46,10 @@ function App() {
     }));
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetchVideos();
     fetchChannelInfo();
-  }, [videoCategory]);
+  }, [videoCategory]);*/
 
   console.log(videoState);
 
@@ -68,6 +69,7 @@ function App() {
         setVideoLoading,
         channelLoading,
         setChannelLoading,
+        videoPageLoading,
       }}
     >
       <Outlet />

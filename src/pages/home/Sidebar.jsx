@@ -1,4 +1,4 @@
-import { categories } from "../utils/Categories";
+import { categories } from "../../utils/Categories";
 
 const Sidebar = ({
   setVideoCategory,

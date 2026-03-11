@@ -1,9 +1,9 @@
 import CardList from "../../components/CardList";
-import Sidebar from "../../components/Sidebar";
+import Sidebar from "./Sidebar";
 import Navbar from "../../components/Navbar";
 import { useContext, useEffect } from "react";
 import userContext from "../../context/UserContext";
-import VideoLoader from "../../components/VideoLoader";
+import VideoLoader from "./VideosLoader";
 const HomePage = () => {
   const {
     videoState,
@@ -19,7 +19,7 @@ const HomePage = () => {
   } = useContext(userContext);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVideoLoading(false), 1500);
+    const timer = setTimeout(() => setVideoLoading(false), 1300);
     return () => clearTimeout(timer);
   }, [videoLoading]);
 

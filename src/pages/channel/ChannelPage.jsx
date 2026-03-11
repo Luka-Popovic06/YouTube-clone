@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import { useContext, useEffect } from "react";
 import userContext from "../../context/UserContext";
 import { loadChannel, loadChannelVideos } from "../../api/youtubeApi";
-import ChannelLoader from "../../components/ChannelLoader";
+import ChannelLoader from "./ChannelLoader";
 
 const ChannelPage = () => {
   const {
@@ -36,7 +36,7 @@ const ChannelPage = () => {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setChannelLoading(false), 1500);
+    const timer = setTimeout(() => setChannelLoading(false), 1300);
     return () => clearTimeout(timer);
   }, [channelLoading]);
 

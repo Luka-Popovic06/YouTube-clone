@@ -240,3 +240,15 @@ main {
   height: 20rem;
   border-radius: 50%;
 }
+.video-page-container {
+  width: 97%;
+  display: flex;
+  gap: 20px;
+}
+.video-comments-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 75%;
+  background-color: aliceblue;
+}

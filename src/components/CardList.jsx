@@ -1,5 +1,5 @@
 import VideoCard from "./VideoCard";
-import ChannelCard from "./ChannelCard";
+import ChannelCard from "../pages/home/ChannelCard";
 const CardList = ({ videos, videoCategory }) => {
   return (
     <>
