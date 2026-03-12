@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { timeAgo } from "../utils/formatData";
 const VideoCard = ({ obj }) => {
   return (
-    <NavLink className="video-card">
+    <NavLink className="video-card" to={`/video/${obj?.id?.videoId}`}>
       <img
         className="video-image"
         src={obj?.snippet?.thumbnails?.high?.url}

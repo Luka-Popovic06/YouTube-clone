@@ -21,6 +21,11 @@ function App() {
   const [channelLoading, setChannelLoading] = useState(true);
   const [videoPageLoading, setVideoPageLoading] = useState(true);
   const [showChannel, setShowChannel] = useState(false);
+  const [videoData, setVideoData] = useState({
+    details: [],
+    comments: [],
+    related: [],
+  });
 
   const fetchVideos = async () => {
     const videos = await loadRelatedVideos(videoCategory);
@@ -51,7 +56,7 @@ function App() {
     fetchChannelInfo();
   }, [videoCategory]);*/
 
-  console.log(videoState);
+  console.log(videoData);
 
   return (
     <userContext.Provider
@@ -70,6 +75,9 @@ function App() {
         channelLoading,
         setChannelLoading,
         videoPageLoading,
+        setVideoPageLoading,
+        videoData,
+        setVideoData,
       }}
     >
       <Outlet />

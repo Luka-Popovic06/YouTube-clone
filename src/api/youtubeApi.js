@@ -75,8 +75,3 @@ export const loadChannelVideos = async (channelId) => {
     return [];
   }
 };
-//Video page request
-//Napraviti zahteve
-export const loadRecommendedVideos = async () => {};
-export const loadVideo = async () => {};
-export const loadVideoComments = async () => {};

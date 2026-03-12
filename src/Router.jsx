@@ -13,11 +13,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <VideoPage />,
+        element: <HomePage />,
       },
       {
         path: "/channel",
         element: <ChannelPage />,
+      },
+      {
+        path: "/video/:id",
+        element: <VideoPage />,
       },
     ],
   },
