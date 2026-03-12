@@ -250,7 +250,6 @@ main {
   flex-direction: column;
   gap: 20px;
   width: 75%;
-  background-color: aliceblue;
 }
 .video-page-box {
   display: flex;
@@ -260,12 +259,10 @@ main {
 .video-box {
   width: 100%;
   height: 33rem;
-  background-color: antiquewhite;
 }
 .video-page-info-box {
   width: 100%;
   height: 3rem;
-  background-color: tomato;
   display: flex;
   justify-content: space-between;
 }
@@ -342,5 +339,4 @@ main {
   flex-direction: column;
   gap: 10px;
   width: 25%;
-  background-color: #6c6c6c;
 }

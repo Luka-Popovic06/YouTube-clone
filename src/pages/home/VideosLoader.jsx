@@ -1,5 +1,5 @@
 import { IoSearchSharp } from "react-icons/io5";
-const VideoLoader = () => {
+const VideosLoader = () => {
   return (
     <>
       <nav>
@@ -124,4 +124,4 @@ const VideoLoader = () => {
     </>
   );
 };
-export default VideoLoader;
+export default VideosLoader;

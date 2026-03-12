@@ -19,7 +19,7 @@ function App() {
   const [activeBtn, setActiveBtn] = useState("New");
   const [videoLoading, setVideoLoading] = useState(true);
   const [channelLoading, setChannelLoading] = useState(true);
-  const [videoPageLoading, setVideoPageLoading] = useState(false);
+  const [videoPageLoading, setVideoPageLoading] = useState(true);
   const [showChannel, setShowChannel] = useState(false);
 
   const fetchVideos = async () => {

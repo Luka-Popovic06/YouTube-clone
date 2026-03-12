@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Navbar from "../../components/Navbar";
 import { useContext, useEffect } from "react";
 import userContext from "../../context/UserContext";
-import VideoLoader from "./VideosLoader";
+import VideosLoader from "./VideosLoader";
 const HomePage = () => {
   const {
     videoState,
@@ -26,7 +26,7 @@ const HomePage = () => {
   return (
     <>
       {videoLoading ? (
-        <VideoLoader />
+        <VideosLoader />
       ) : (
         <>
           <Navbar
