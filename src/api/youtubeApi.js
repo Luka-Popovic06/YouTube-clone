@@ -75,3 +75,26 @@ export const loadChannelVideos = async (channelId) => {
     return [];
   }
 };
+//Video
+export const loadVideo = async (videoId) => {
+  const options = {
+    method: "GET",
+    url: "https://youtube-v31.p.rapidapi.com/videos",
+    params: {
+      part: "contentDetails,snippet,statistics",
+      id: videoId,
+    },
+    headers: {
+      "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
+      "x-rapidapi-host": "youtube-v31.p.rapidapi.com",
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    const response = await axios.request(options);
+    return response.data.items;
+  } catch (error) {
+    console.error("Greška pri učitavanju videa:", error);
+    return [];
+  }
+};

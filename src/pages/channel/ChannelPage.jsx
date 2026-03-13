@@ -36,7 +36,7 @@ const ChannelPage = () => {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setChannelLoading(false), 1300);
+    const timer = setTimeout(() => setChannelLoading(false), 1400);
     return () => clearTimeout(timer);
   }, [channelLoading]);
 

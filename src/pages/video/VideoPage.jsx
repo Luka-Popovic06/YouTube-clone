@@ -27,7 +27,7 @@ const VideoPage = () => {
     setVideoPageLoading,
   } = useContext(userContext);
 
-  const { id } = useParams();
+  const { id } = useParams(); //pogledaj
 
   const fetchVideo = async () => {
     const videoInfo = await loadVideo(id);
@@ -57,7 +57,7 @@ const VideoPage = () => {
     setVideoPageLoading(true);
   }, [id]);*/
   useEffect(() => {
-    const time = setTimeout(() => setVideoPageLoading(false), 1300);
+    const time = setTimeout(() => setVideoPageLoading(false), 1400);
     return () => clearTimeout(time);
   }, [videoPageLoading]);
   return (

@@ -19,7 +19,7 @@ const HomePage = () => {
   } = useContext(userContext);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVideoLoading(false), 1300);
+    const timer = setTimeout(() => setVideoLoading(false), 1400);
     return () => clearTimeout(timer);
   }, [videoLoading]);
 
