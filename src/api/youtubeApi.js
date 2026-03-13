@@ -122,3 +122,27 @@ export const loadVideoComments = async (videoId) => {
     return [];
   }
 };
+//loading recomended videos
+export const loadRecommendedVideos = async (videoId) => {
+  const options = {
+    method: "GET",
+    url: "https://youtube-v31.p.rapidapi.com/search",
+    params: {
+      part: "snippet",
+      relatedToVideoId: videoId,
+      type: "video",
+      maxResults: "10",
+    },
+    headers: {
+      "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
+      "x-rapidapi-host": "youtube-v31.p.rapidapi.com",
+    },
+  };
+  try {
+    const response = await axios.request(options);
+    return response.data.items;
+  } catch (error) {
+    console.error("Greška pri učitavanju videa:", error);
+    return [];
+  }
+};
