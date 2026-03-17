@@ -2,13 +2,9 @@ import { useState, useEffect } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import "./styles/App.css";
 import userContext from "./context/UserContext.jsx";
-import {
-  loadRelatedVideos,
-  loadChannel,
-  loadChannelVideos,
-} from "./api/youtubeApi.js";
+import Navbar from "./components/Navbar.jsx";
 
-function App() {
+function SharedLayout() {
   const [videoState, setVideoState] = useState({
     featuredVideos: [],
     channelInfo: [],
@@ -17,46 +13,15 @@ function App() {
   const [videoCategory, setVideoCategory] = useState("New");
   const [search, setSearch] = useState("");
   const [activeBtn, setActiveBtn] = useState("New");
-  const [videoLoading, setVideoLoading] = useState(true);
-  const [channelLoading, setChannelLoading] = useState(true);
-  const [videoPageLoading, setVideoPageLoading] = useState(true);
+  const [videoLoading, setVideoLoading] = useState(false);
+  const [channelLoading, setChannelLoading] = useState(false);
+  const [videoPageLoading, setVideoPageLoading] = useState(false);
   const [showChannel, setShowChannel] = useState(false);
   const [videoData, setVideoData] = useState({
     details: [],
     comments: [],
     related: [],
   });
-
-  const fetchVideos = async () => {
-    const videos = await loadRelatedVideos(videoCategory);
-    setVideoState((prev) => ({
-      ...prev,
-      featuredVideos: videos,
-    }));
-  };
-
-  const fetchChannelInfo = async () => {
-    if (showChannel === false) {
-      setVideoState((prev) => ({
-        ...prev,
-        channelInfo: [],
-      }));
-      return;
-    }
-
-    const channel = await loadChannel(videoCategory);
-    setVideoState((prev) => ({
-      ...prev,
-      channelInfo: channel,
-    }));
-  };
-
-  /*useEffect(() => {
-    fetchVideos();
-    fetchChannelInfo();
-  }, [videoCategory]);*/
-
-  console.log(videoData);
 
   return (
     <userContext.Provider
@@ -78,11 +43,21 @@ function App() {
         setVideoPageLoading,
         videoData,
         setVideoData,
+        showChannel,
       }}
     >
+      {!videoLoading && !channelLoading && !videoPageLoading && (
+        <Navbar
+          setVideoCategory={(value) => setVideoCategory(value)}
+          setSearch={(value) => setSearch(value)}
+          search={search}
+          setShowChannel={(value) => setShowChannel(value)}
+          setActiveBtn={(value) => setActiveBtn(value)}
+        />
+      )}
       <Outlet />
     </userContext.Provider>
   );
 }
 
-export default App;
+export default SharedLayout;

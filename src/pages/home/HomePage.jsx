@@ -1,9 +1,13 @@
 import CardList from "../../components/CardList";
 import Sidebar from "./Sidebar";
-import Navbar from "../../components/Navbar";
 import { useContext, useEffect } from "react";
 import userContext from "../../context/UserContext";
 import VideosLoader from "./VideosLoader";
+import {
+  loadRelatedVideos,
+  loadChannel,
+  loadChannelVideos,
+} from "../../api/youtubeApi";
 const HomePage = () => {
   const {
     videoState,
@@ -11,17 +15,37 @@ const HomePage = () => {
     setVideoCategory,
     setActiveBtn,
     activeBtn,
-    search,
-    setSearch,
     videoLoading,
     setShowChannel,
     setVideoLoading,
+    setVideoState,
+    showChannel,
   } = useContext(userContext);
 
+  const fetchAllData = async () => {
+    setVideoLoading(true);
+
+    try {
+      const [videos, channel] = await Promise.all([
+        loadRelatedVideos(videoCategory),
+        showChannel ? loadChannel(videoCategory) : Promise.resolve([]),
+      ]);
+
+      setVideoState((prev) => ({
+        ...prev,
+        featuredVideos: videos,
+        channelInfo: channel,
+      }));
+
+      setVideoLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    const timer = setTimeout(() => setVideoLoading(false), 1400);
-    return () => clearTimeout(timer);
-  }, [videoLoading]);
+    fetchAllData();
+  }, [videoCategory]);
 
   return (
     <>
@@ -29,14 +53,6 @@ const HomePage = () => {
         <VideosLoader />
       ) : (
         <>
-          <Navbar
-            setVideoCategory={(value) => setVideoCategory(value)}
-            setSearch={(value) => setSearch(value)}
-            search={search}
-            setShowChannel={(value) => setShowChannel(value)}
-            setActiveBtn={(value) => setActiveBtn(value)}
-            setLoading={(value) => setVideoLoading(value)}
-          />
           <main>
             <Sidebar
               setVideoCategory={(value) => setVideoCategory(value)}

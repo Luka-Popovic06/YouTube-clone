@@ -26,7 +26,6 @@ const Navbar = ({
           navigate("/");
           setShowChannel(true);
           setActiveBtn("New");
-          setLoading(true);
         }}
       >
         <input

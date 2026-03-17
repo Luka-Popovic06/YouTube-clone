@@ -128,14 +128,15 @@ export const loadRecommendedVideos = async (videoId) => {
     method: "GET",
     url: "https://youtube-v31.p.rapidapi.com/search",
     params: {
-      part: "snippet",
       relatedToVideoId: videoId,
+      part: "snippet",
       type: "video",
       maxResults: "10",
     },
     headers: {
       "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
       "x-rapidapi-host": "youtube-v31.p.rapidapi.com",
+      "Content-Type": "application/json",
     },
   };
   try {
