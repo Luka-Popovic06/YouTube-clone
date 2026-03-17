@@ -9,7 +9,7 @@ export const loadRelatedVideos = async (videoCategory) => {
       part: "snippet,id",
       type: "video",
       order: "date",
-      maxResults: "5",
+      maxResults: "20",
       regionCode: "US",
     },
     headers: {
@@ -59,7 +59,7 @@ export const loadChannelVideos = async (channelId) => {
       channelId: channelId,
       part: "snippet,id",
       order: "date",
-      maxResults: "5",
+      maxResults: "20",
     },
     headers: {
       "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
@@ -106,7 +106,7 @@ export const loadVideoComments = async (videoId) => {
     params: {
       part: "snippet",
       videoId: videoId,
-      maxResults: "10",
+      maxResults: "20",
     },
     headers: {
       "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
@@ -131,7 +131,7 @@ export const loadRecommendedVideos = async (videoId) => {
       relatedToVideoId: videoId,
       part: "snippet",
       type: "video",
-      maxResults: "10",
+      maxResults: "20",
     },
     headers: {
       "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,

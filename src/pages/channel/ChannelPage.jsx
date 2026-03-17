@@ -13,6 +13,27 @@ const ChannelPage = () => {
     setChannelLoading,
   } = useContext(userContext);
 
+  const fetchChannelVideos = async () => {
+    try {
+      setChannelLoading(true);
+
+      const [channelVideos, channelInfo] = await Promise.all([
+        loadChannelVideos(videoState?.channelInfo?.[0]?.id?.channelId),
+        loadChannel(videoCategory),
+      ]);
+
+      setVideoState((prev) => ({
+        ...prev,
+        channelInfo: channelInfo,
+        channelVideos: channelVideos,
+      }));
+
+      setChannelLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchChannelVideos();
   }, []);
