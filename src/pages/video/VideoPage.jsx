@@ -16,6 +16,28 @@ const VideoPage = () => {
 
   const { id } = useParams();
 
+  const fetchAllData = async () => {
+    try {
+      setVideoPageLoading(true);
+
+      const [videoInfo, videoComments, relatedVideos] = await Promise.all([
+        loadVideo(id),
+        loadVideoComments(id),
+        loadRecommendedVideos(id),
+      ]);
+
+      setVideoData({
+        details: videoInfo,
+        comments: videoComments,
+        related: relatedVideos,
+      });
+
+      setVideoPageLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchAllData();
   }, [id]);
